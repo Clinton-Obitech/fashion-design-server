@@ -50,7 +50,7 @@ async (req, res) =>
             })
         } else {
             const userToken = jwt.sign(
-                {id: result?.user?.id},
+                {id: result.user.id},
                 process.env.JWT_SECRET,
                 {expiresIn: "1d"}
             )

@@ -12,9 +12,11 @@ app.use(express.urlencoded({extended:true}));
 app.use(express.json());
 app.use(cookieParser());
 app.use(cors({
-    origin: `"${process.env.CLIENT_URL}"`,
+    origin: "https://fashion-design-server.onrender.com",
     credentials: true
 }));
+
+console.log(process.env.CLIENT_URL)
 
 app.use("/api", UserAuth);
 app.use("/api", getUser);
