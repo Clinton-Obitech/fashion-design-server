@@ -6,7 +6,7 @@ async (req, res) =>
 {
     try {
         const result = await LoginUser(req.body);
-        console.log(result.user.id)
+
         if (!result.success) {
             res.status(result.status).json({
                 success: result.success,
@@ -14,7 +14,7 @@ async (req, res) =>
             })
         } else {
             const userToken = jwt.sign(
-                {id: result?.user?.id},
+                {id: result.user.id},
                 process.env.JWT_SECRET,
                 {expiresIn: "1d"}
             )
