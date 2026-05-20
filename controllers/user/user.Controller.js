@@ -6,7 +6,7 @@ async (req, res) =>
     try {
         const result = await getUser(req.userId);
 
-        return res.json({user: result.firstname})
+        return res.json({user: result})
     } catch (err) {
         console.error(err);
         return res.status(500).json({
